@@ -1,0 +1,47 @@
+{
+  "gap": "Gap2_Qwen_NF4_QLoRA_DPO",
+  "gpu_name": "NVIDIA L4",
+  "vram_gb": 22.03,
+  "compute_dtype": "torch.bfloat16",
+  "base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "quantization": "4-bit NF4 double-quant (bitsandbytes)",
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "trainable_params": 18464768,
+  "sft_steps": 45,
+  "sft_loss_start": 2.8643,
+  "sft_loss_end": 0.0197,
+  "dpo_steps": 15,
+  "dpo_loss_start": 0,
+  "dpo_loss_end": 0,
+  "train_seconds": 35.97,
+  "adapter_safetensors_bytes": 73911112,
+  "adapter_safetensors_sha256": "c1cdb8772a17191f3434c4f8f5b9de1f3d874494f0dda0a5371999ed4103d7e8",
+  "adapter_tensor_count": 392,
+  "peak_vram_mb": 2005,
+  "pre_eval": {
+    "eval_count": 25,
+    "strict_json_pass": 0,
+    "strict_json_rate": 0,
+    "severity_exact_match": 0,
+    "severity_accuracy": 0,
+    "decode_tok_s": 17.25,
+    "samples": [
+      "```json\n{\n  \"severity\": \"High\",\n  \"cwe\": \"CWE-78: Improper Neutralization of Special Elements in Data Input\",\n  \"component\": \"Webhook Fetcher Service\",\n  \"remediation\": \"Implement ",
+      "```json\n{\n  \"severity\": \"High\",\n  \"cwe\": \"CWE-400 - Injection\",\n  \"component\": \"Invoice Controller Service\",\n  \"remediation\": \"Implement input validation and sanitization to preven"
+    ]
+  },
+  "post_eval": {
+    "eval_count": 25,
+    "strict_json_pass": 25,
+    "strict_json_rate": 1,
+    "severity_exact_match": 10,
+    "severity_accuracy": 0.4,
+    "decode_tok_s": 10,
+    "samples": [
+      "{\"severity\":\"CRITICAL\",\"cwe\":\"CWE-619\",\"component\":\"webhook_fetcher\",\"remediation\":\"Restrict outbound URLs to allowlisted HTTPS hosts.\"}",
+      "{\"severity\":\"CRITICAL\",\"cwe\":\"CWE-639\",\"component\":\"invoice_controller\",\"remediation\":\"Enforce tenant_id ownership check inside parameterized repository queries.\"}"
+    ]
+  },
+  "total_runtime_sec": 240.1
+}
