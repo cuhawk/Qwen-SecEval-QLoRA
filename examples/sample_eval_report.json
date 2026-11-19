@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "benchmark": "qwen-seceval",
+  "n_examples": 4,
+  "missing_predictions": 1,
+  "metrics": {
+    "strict_json_schema_pass_rate": {
+      "name": "strict_json_schema_pass_rate",
+      "value": 0.5,
+      "unit": "ratio",
+      "n": 4,
+      "ci_low": 0.15003898915214958,
+      "ci_high": 0.8499610108478504,
+      "source": "deterministic"
+    },
+    "severity_exact_match": {
+      "name": "severity_exact_match",
+      "value": 0.5,
+      "unit": "ratio",
+      "n": 4,
+      "ci_low": 0.15003898915214958,
+      "ci_high": 0.8499610108478504,
+      "source": "deterministic"
+    },
+    "field_micro_f1": {
+      "name": "field_micro_f1",
+      "value": 0.42857142857142855,
+      "unit": "ratio",
+      "n": 4,
+      "ci_low": null,
+      "ci_high": null,
+      "source": "deterministic"
+    }
+  },
+  "counts": {
+    "schema_passes": 2,
+    "severity_matches": 2,
+    "field_true_positives": 3,
+    "field_false_positives": 1,
+    "field_false_negatives": 7
+  }
+}

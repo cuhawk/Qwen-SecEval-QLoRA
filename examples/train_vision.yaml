@@ -1,0 +1,6 @@
+model: Qwen/Qwen2-VL-2B-Instruct
+dataset: work/train/sft.jsonl
+output_dir: work/vision-sft-adapter
+stage: sft
+modality: vision
+max_length: null
