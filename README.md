@@ -1,5 +1,7 @@
 # Qwen-SecEval-QLoRA
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cuhawk/Qwen-SecEval-QLoRA/blob/main/notebooks/qwen25_nf4_qlora_dpo_l4.ipynb)
+
 Production 4-bit NF4 **QLoRA + DPO** fine-tuning and deterministic structured JSON evaluation pipeline for security incident & UI extraction workloads on **Qwen2.5 / Qwen2-VL**, with GGUF/vLLM serving manifests and 95% Wilson CI scoring.
 
 ## Offline quick start
