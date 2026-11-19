@@ -85,3 +85,18 @@ with sample size `n`, `ci_low`, `ci_high`, and
 F1 has null interval bounds. Undefined metrics are omitted from JSON and
 shown as N/A in Markdown. The top-level counts expose the scoring totals.
 See [the synthetic sample report](examples/sample_eval_report.json).
+
+## Verified Google Colab GPU Benchmark (Base vs. 4-bit NF4 QLoRA + DPO)
+
+Executed cleanly on **NVIDIA L4 (22.03 GB VRAM, `torch.bfloat16`)** via Google Colab Pro+ (`25` held-out incident-triage evaluation cases; telemetry stored in [`benchmarks/colab_qlora_dpo_metrics.json`](benchmarks/colab_qlora_dpo_metrics.json)).
+
+| Metric | Value |
+| :--- | :--- |
+| **Base Model & Quantization** | `Qwen/Qwen2.5-1.5B-Instruct` (`4-bit NF4 double-quant (bitsandbytes)`) |
+| **LoRA Adapter Config** | `r=16`, `alpha=32`, `18,464,768` trainable params (`392` tensors, `73.9 MB` `.safetensors`) |
+| **SFT Loss (45 steps)** | `2.8643` -> `0.0197` |
+| **DPO Alignment (15 steps)** | Frozen LoRA-disabled reference log-probs (`train_seconds = 35.97s`, peak VRAM `2005 MB`) |
+| **Base Strict-JSON Pass Rate** | `0/25` (`0.0%`, markdown-wrapped prose) @ `17.25 tok/s` |
+| **Post-QLoRA+DPO Strict-JSON Pass Rate** | **`25/25` (`100.0%`, raw minified JSON)** @ `10 tok/s` |
+| **Severity Exact Match** | `0/25` (`0.0%`) -> **`10/25` (`40.0%`)** |
+| **Adapter SHA-256** | `c1cdb8772a17191f3434c4f8f5b9de1f3d874494f0dda0a5371999ed4103d7e8` |
