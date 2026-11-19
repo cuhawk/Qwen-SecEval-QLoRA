@@ -1,0 +1,9 @@
+model: Qwen/Qwen2.5-1.5B-Instruct
+dataset: work/train/dpo.jsonl
+output_dir: work/dpo-adapter
+stage: dpo
+modality: text
+sft_adapter: work/sft-adapter
+learning_rate: 0.00005
+max_length: 1024
+beta: 0.1
